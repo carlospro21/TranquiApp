@@ -1,0 +1,23 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #111827;
+  color: #f3f4f6;
+  margin: 0;
+  padding: 2rem;
+  text-align: center;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #a78bfa;
+  text-decoration: none;
+}
+
+.back-btn:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simulador de Respiración - TranquiApp</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="breath.css" />
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <header class="header">
+    <div class="logo">
+      <img src="img/logotranquiapp.png" alt="Logo" height="40">
+      <span>TranquiApp</span>
+    </div>
+    <nav>
+      <a href="index.html">Inicio</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 class="glow-text">Simulador de Respiración</h1>
+    <p class="subtitle">Relájate siguiendo el ritmo</p>
+
+    <div class="breathing-container">
+      <div class="circle"></div>
+      <p id="breathText">Inhala</p>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="breath.js"></script>
+</body>
+</html>

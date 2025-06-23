@@ -1,0 +1,45 @@
+/* animations.css */
+
+.animated-fade-in {
+  animation: fadeIn 2s ease forwards;
+  opacity: 0;
+}
+
+.animated-slide-in {
+  animation: slideIn 2s ease forwards;
+  opacity: 0;
+}
+
+.glow-text {
+  text-shadow: 0 0 10px #7c3aed, 0 0 20px #a78bfa, 0 0 30px #7c3aed;
+}
+
+.tool-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}

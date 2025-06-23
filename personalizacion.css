@@ -1,0 +1,57 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 2rem;
+  background-color: #0f172a;
+  color: white;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: #1e293b;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #a78bfa;
+}
+
+.section {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+select {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: none;
+}
+
+button {
+  background: #7c3aed;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.back {
+  display: block;
+  margin-top: 1.5rem;
+  text-align: center;
+  color: #a78bfa;
+  text-decoration: none;
+}

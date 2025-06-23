@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto - TranquiApp</title>
+  <link rel="stylesheet" href="contact.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="index.html" class="back-btn">← Volver al Inicio</a>
+  <section class="contact-section">
+    <h1 class="glow-text">Contáctanos</h1>
+    <p class="subtitle">¿Tienes dudas, sugerencias o simplemente quieres decir hola? ¡Estamos para ti!</p>
+
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <input type="text" placeholder="Tu nombre" required />
+      <input type="email" placeholder="Tu correo electrónico" required />
+      <textarea placeholder="Tu mensaje" rows="5" required></textarea>
+      <button type="submit">Enviar mensaje</button>
+      <p class="form-response" id="form-response"></p>
+    </form>
+  </section>
+<footer data-aos="fade-up">
+  <div class="footer-col">
+    <h4>TranquiApp</h4>
+    <p>Tu compañero diario para la paz espacial y la atención plena.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Features</h4>
+    <ul>
+      <li>Meditation</li>
+      <li>Sleep Stories</li>
+      <li>Breathing</li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <ul>
+      <li>About</li>
+      <li>Careers</li>
+      <li>Contact</li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Follow Us</h4>
+    <div class="socials">
+      <span>🐦</span><span>📘</span><span>📸</span>
+    </di
+  <script src="contact.js"></script>
+</body>
+</html>

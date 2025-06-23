@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TranquiApp</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="animations.css" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="script.js" defer></script>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+      margin: 0;
+    }
+    .message-form {
+      max-width: 600px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background-color: #1e293b;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+    }
+    .message-form h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .message-form textarea {
+      width: 100%;
+      padding: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      border: none;
+      resize: vertical;
+    }
+    .message-form button {
+      margin-top: 1rem;
+      width: 100%;
+      padding: 1rem;
+      background-color: #7c3aed;
+      border: none;
+      border-radius: 0.5rem;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .wall {
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+    .message {
+      background-color: #334155;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 0.5rem;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      AOS.init({ duration: 1200, once: true });
+      particlesJS('particles-js', {
+        particles: {
+          number: { value: 50, density: { enable: true, value_area: 800 } },
+          color: { value: '#a78bfa' },
+          shape: { type: 'circle' },
+          opacity: { value: 0.5, random: true },
+          size: { value: 3, random: true },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: '#7c3aed',
+            opacity: 0.4,
+            width: 1
+          },
+          move: {
+            enable: true,
+            speed: 1.5,
+            direction: 'none',
+            out_mode: 'out'
+          }
+        },
+        interactivity: {
+          detect_on: 'canvas',
+          events: {
+            onhover: { enable: true, mode: 'repulse' },
+            onclick: { enable: true, mode: 'push' }
+          },
+          modes: {
+            repulse: { distance: 80, duration: 0.4 },
+            push: { particles_nb: 4 }
+          }
+        },
+        retina_detect: true
+      });
+
+      loadMessages();
+    });
+
+    function postMessage() {
+      const textarea = document.getElementById("userMessage");
+      const text = textarea.value.trim();
+      if (text.length < 10 || text.length > 300) {
+        alert("El mensaje debe tener entre 10 y 300 caracteres.");
+        return;
+      }
+      const messages = JSON.parse(localStorage.getItem("messages") || "[]");
+      const newMessage = { text, timestamp: Date.now() };
+      messages.unshift(newMessage);
+      localStorage.setItem("messages", JSON.stringify(messages));
+      textarea.value = "";
+      loadMessages();
+    }
+
+    function loadMessages() {
+      const container = document.getElementById("messageWall");
+      const messages = JSON.parse(localStorage.getItem("messages") || "[]");
+      container.innerHTML = "<h2 style='text-align:center;'>Muro de mensajes</h2>";
+      for (let msg of messages) {
+        const div = document.createElement("div");
+        div.className = "message";
+        div.textContent = msg.text;
+        container.appendChild(div);
+      }
+    }
+  </script>
+</body>
+</html>
+  <script>AOS.init({ duration: 1200, once: true });</script>
+  <div id="particles-js"></div>
+<header class="navbar">
+  <div class="logo-nav">
+    <img src="img/logotranquiapp.png" alt="Logo" height="32">
+    <span class="brand-name">TranquiApp</span>
+  </div>
+  <nav class="nav-links">
+    <a href="index.html">Inicio</a>
+    <a href="muro.html">Muro Emocional</a>
+    <a href="estadisticas.html">Estadísticas</a>
+    <a href="login.html">Login</a>
+    <a href="contact.html">Contacto</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1 class="glow-text">TranquiApp: Tu espacio de calma</h1>
+  <p>Encuentra herramientas para relajarte, respirar, y conectar contigo mismo.</p>
+
+  <div class="cta">
+    <button class="primary">Prueba gratis</button>
+    <button class="secondary">Ver demo</button>
+  </div>
+
+  <div class="cta muro-btn">
+    <a href="muro.html">
+      <button class="primary">Ir al Muro Emocional</button>
+      <a href="breath.html"><button class="secondary">Simulador de Respiración</button></a>
+    </a>
+  </div>
+  <div class="cta">
+  <a href="personalizacion.html" class="personalize-btn">🎨 Personalizar</a>
+</div>
+<section class="extras-section">
+  <h2>Más Funcionalidades</h2>
+  <div class="extras-buttons">
+    <a href="estadisticas.html" class="btn extra-btn">Ver Estadísticas</a>
+    <a href="login.html" class="btn extra-btn">Login / Registro</a>
+  </div>
+</section>
+</section>
+
+  
+
+  <section class="tools animated-slide-in" id="features">
+    <div class="card" data-aos="fade-up" data-aos-delay="100">
+      <img src="img/tranqui.png" alt="Meditation Timer" class="tool-icon"/>
+      <h3>Meditation Timer</h3>
+      <p>Sesiones de meditación personalizables con sonidos ambientales y prácticas guiadas.</p>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="200">
+      <img src="img/corazon.png" alt="Breath Training" class="tool-icon"/>
+      <h3>Breath Training</h3>
+      <p>Ejercicios de respiración interactivos con guías visuales y seguimiento del progreso.</p>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="300">
+      <img src="img/luna.png" alt="Sleep Stories" class="tool-icon"/>
+      <h3>Sleep Stories</h3>
+      <p>Cuentos y sonidos relajantes para dormir que mejoran la calidad del sueño.</p>
+    </div>
+  </section>
+  <section class="metrics" data-aos="fade-up">
+    <div class="reason">
+      <h2>¿Por qué elegir TranquiApp?</h2>
+      <ul>
+        <li>✓ Técnicas científicamente probadas</li>
+        <li>✓ Experiencia personalizada</li>
+        <li>✓ Sesiones guiadas por expertos</li>
+      </ul>
+    </div>
+    <div class="stats">
+      <div data-aos="zoom-in">10K+<br><small>Active Users</small></div>
+      <div data-aos="zoom-in">500+<br><small>Meditation Sessions</small></div>
+      <div data-aos="zoom-in">4.8<br><small>Average Rating</small></div>
+      <div data-aos="zoom-in">24/7<br><small>Support</small></div>
+    </div>
+  </section>
+
+  <section class="plans" data-aos="fade-up">
+    <h2>Planes de Suscripción</h2>
+    <p>Encuentra el plan perfecto para tu tranquilidad</p>
+    <div class="plan-cards">
+      <div class="plan" data-aos="flip-left">
+        <h3>Free</h3>
+        <p class="price">$0<span>/mes</span></p>
+        <ul>
+          <li>✓ Meditaciones básicas</li>
+          <li>✓ 5 ejercicios de respiración</li>
+          <li>✓ Acceso limitado</li>
+        </ul>
+        <button>Acceder</button>
+      </div>
+      <div class="plan popular" data-aos="flip-left" data-aos-delay="100">
+        <h3>Pro <span class="tag">Popular</span></h3>
+        <p class="price">$19<span>/mes</span></p>
+        <ul>
+          <li>✓ Todo lo del plan Free</li>
+          <li>✓ Meditaciones ilimitadas</li>
+          <li>✓ Seguimiento personalizado</li>
+          <li>✓ Soporte 24/7</li>
+        </ul>
+        <button>Acceder</button>
+      </div>
+      <div class="plan" data-aos="flip-left" data-aos-delay="200">
+        <h3>Básico</h3>
+        <p class="price">$9<span>/mes</span></p>
+        <ul>
+          <li>✓ Todo lo del plan Free</li>
+          <li>✓ 12 meditaciones premium</li>
+          <li>✓ Soporte básico</li>
+        </ul>
+        <button>Acceder</button>
+      </div>
+    </div>
+  </section>
+<script>
+function publicarMensaje(e) {
+  e.preventDefault();
+  const texto = document.getElementById("mensajeTexto").value.trim();
+  const categoria = document.getElementById("mensajeCategoria").value;
+  const error = document.getElementById("mensajeError");
+
+  if (texto.length < 10 || texto.length > 300) {
+    error.textContent = "Tu mensaje debe tener entre 10 y 300 caracteres.";
+    return;
+  }
+
+  error.textContent = "";
+  const nuevoMensaje = {
+    texto,
+    categoria,
+    fecha: new Date().toLocaleString(),
+  };
+
+  const mensajes = JSON.parse(localStorage.getItem("mensajesAnonimos") || "[]");
+  mensajes.unshift(nuevoMensaje);
+  localStorage.setItem("mensajesAnonimos", JSON.stringify(mensajes));
+  document.getElementById("mensajeTexto").value = "";
+  cargarMensajes();
+}
+
+function cargarMensajes() {
+  const contenedor = document.getElementById("listaMensajes");
+  const mensajes = JSON.parse(localStorage.getItem("mensajesAnonimos") || "[]");
+  contenedor.innerHTML = "";
+  mensajes.forEach((m) => {
+    const div = document.createElement("div");
+    div.className = "mensaje-card";
+    div.innerHTML = `
+      <p>${m.texto}</p>
+      <div class="mensaje-categoria">🗂 ${m.categoria} | 📅 ${m.fecha}</div>
+    `;
+    contenedor.appendChild(div);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", cargarMensajes);
+</script>
+  <section class="testimonios" data-aos="fade-up">
+    <h2 class="glow-text">Testimonios de Usuarios</h2>
+    <div class="testimonial-container">
+      <div class="testimonial-card" onclick="toggleCard(this)">
+        <p>“TranquiApp me ayudó a dormir mejor y a manejar mi ansiedad.”<br><cite>— Sofía L.</cite></p>
+      </div>
+      <div class="testimonial-card" onclick="toggleCard(this)">
+        <p>“Las sesiones de respiración guiada son mi nueva rutina matutina.”<br><cite>— Marcos T.</cite></p>
+      </div>
+      <div class="testimonial-card" onclick="toggleCard(this)">
+        <p>“La música ambiental me transporta, es maravillosa.”<br><cite>— Lucía M.</cite></p>
+      </div>
+    </div>
+  </section>
+  <footer data-aos="fade-up">
+    <div class="footer-col">
+      <h4>TranquiApp</h4>
+      <p>Tu compañero diario para la paz espacial y la atención plena.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Features</h4>
+      <ul>
+        <li>Meditation</li>
+        <li>Sleep Stories</li>
+        <li>Breathing</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li>About</li>
+        <li>Careers</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <div class="socials">
+        <span>🐦</span><span>📘</span><span>📸</span>
+      </div>
+    </div>
+  </footer>
+
+  <button id="music-btn" title="Música ambiental">🎵</button>
+  <audio id="ambientMusic" loop>
+    <source src="music/relax.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    const breathText = document.getElementById("breathText");
+    const texts = ["Inhala", "Exhala"];
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % texts.length;
+      breathText.textContent = texts[index];
+    }, 4000);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("mobile-menu");
+      if (toggle) {
+        toggle.addEventListener("click", () => {
+          menu.classList.toggle("show");
+        });
+      }
+
+      AOS.init({ duration: 1200, once: true });
+
+      particlesJS('particles-js', {
+        particles: {
+          number: { value: 50, density: { enable: true, value_area: 800 } },
+          color: { value: '#a78bfa' },
+          shape: { type: 'circle', stroke: { width: 0, color: '#000' } },
+          opacity: { value: 0.5, random: true },
+          size: { value: 3, random: true },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: '#7c3aed',
+            opacity: 0.4,
+            width: 1
+          },
+          move: {
+            enable: true,
+            speed: 1.5,
+            direction: 'none',
+            out_mode: 'out'
+          }
+        },
+        interactivity: {
+          detect_on: 'canvas',
+          events: {
+            onhover: { enable: true, mode: 'repulse' },
+            onclick: { enable: true, mode: 'push' }
+          },
+          modes: {
+            repulse: { distance: 80, duration: 0.4 },
+            push: { particles_nb: 4 }
+          }
+        },
+        retina_detect: true
+      });
+
+      const music = document.getElementById("ambientMusic");
+      const musicBtn = document.getElementById("music-btn");
+      let isPlaying = false;
+      musicBtn.addEventListener("click", () => {
+        if (isPlaying) {
+          music.pause();
+          isPlaying = false;
+          musicBtn.textContent = "🎵";
+        } else {
+          music.play();
+          isPlaying = true;
+          musicBtn.textContent = "🔇";
+        }
+      });
+    });
+
+    function toggleCard(card) {
+      if (card.querySelector('.expanded')) {
+        card.querySelector('.expanded').remove();
+        return;
+      }
+      document.querySelectorAll('.testimonial-card .expanded').forEach(e => e.remove());
+      const content = document.createElement('div');
+      content.className = 'expanded';
+      content.innerHTML = card.innerHTML;
+      card.appendChild(content);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muro Emocional | TranquiApp</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="muro.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo"><a href="index.html">TranquiApp</a></div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="contact.html">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="muro-section">
+    <h2>Muro Emocional</h2>
+
+    <form class="muro-form" id="muroForm">
+      <textarea id="mensaje" placeholder="Escribe tu mensaje anónimo..."></textarea>
+      
+      <div class="muro-controls">
+        <select id="categoria">
+          <option value="">Selecciona tu emoción</option>
+          <option value="Feliz">😊 Feliz</option>
+          <option value="Triste">😢 Triste</option>
+          <option value="Ansioso">😰 Ansioso</option>
+          <option value="Motivado">💪 Motivado</option>
+          <option value="Agradecido">🙏 Agradecido</option>
+        </select>
+        <button type="submit">Publicar</button>
+      </div>
+
+      <div class="muro-error" id="errorMsg"></div>
+    </form>
+
+    <div class="muro-mensajes" id="mensajesContainer">
+      <!-- Los mensajes aparecerán aquí -->
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-col">
+      <h4>TranquiApp</h4>
+      <p>Tu compañero diario para la paz emocional.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Features</h4>
+      <ul>
+        <li>Meditación</li>
+        <li>Historias para Dormir</li>
+        <li>Respiración</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Empresa</h4>
+      <ul>
+        <li>Sobre Nosotros</li>
+        <li>Contacto</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Síguenos</h4>
+      <div class="socials"><span>🐦</span> <span>📘</span> <span>📸</span></div>
+    </div>
+  </footer>
+</body>
+</html>
